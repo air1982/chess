@@ -1,0 +1,28 @@
+<form id="filter-form"> 
+	<legend>Filters</legend>
+	<fieldset>
+		<label>From Date</label>
+		<input type="text" name="{fromdate}" class="hasDatepicker js-fromdate"/>
+	</fieldset>
+	<fieldset>
+		<label>To Date</label>
+		<input type="text" name="{todate}" class="hasDatepicker js-todate"/>
+	</fieldset>
+	<fieldset data-tpl="{operator}">
+		<label>Operator</label>
+		
+	</fieldset>
+	<fieldset data-tpl="{region}">
+		<label>Region</label>
+		
+	</fieldset>
+	<button type="submit" class="btn">View/Review</button>
+	</fieldset>
+</form>
+
+<div class="js-date-filters date-filters popup">
+	<label>From Date</label>
+	<label>To Date</label>
+	<div class="js-fromdate-picker calendar"/>
+	<div class="js-todate-picker calendar"/>
+</div>

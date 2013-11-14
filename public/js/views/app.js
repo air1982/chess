@@ -26,14 +26,19 @@ define(function (require) {
 		
 		render: function(){
 			console.log('AppView:render');
-			this.startGame();
+			this.initApp();
 			
 		},
 
-		startGame: function(){
+		initApp: function(){
 			var appView = this;
-			require(['views/chess'], function (ProfilePage) {
-				Vm.create(appView, 'CenterView', ProfilePage,{ appView: appView}, 'Chess')
+			require(['views/filters-block'], function (Page) {
+				Vm.create(appView, 'FiltersView', Page,{ appView: appView}, 'Filters')
+					.render();
+			});
+			
+			require(['views/data-block'], function (Page) {
+				Vm.create(appView, 'DataView', Page,{ appView: appView}, 'Data')
 					.render();
 			});
 			

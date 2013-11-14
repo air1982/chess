@@ -1,14 +1,55 @@
 <!DOCTYPE html>
-<script src="/js/lib/jquery-1.7.2.min.js"></script>
-<script data-main="/js/main.js" src="/js/lib/requirejs/require.js"></script>
+
 <html>
   <head>
-    <title>Chess</title>
-    <link rel='stylesheet' href='/css/style.css' />
+    <title>Asimus Public Portal</title>
+    <link rel='stylesheet' href='/css/bootstrap.min.css'/>
+    <!--<link rel="stylesheet" href="css/base/jquery.ui.all.css">-->
+    <link rel="stylesheet" href="css/as/jquery-ui-1.9.2.custom.min.css">
+      
+    <link rel='stylesheet' href='/css/main.css'/>
+    <script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui-timepicker-addon.js"></script>
+    <script data-main="/js/main.js" src="/js/lib/requirejs/require.js"></script>
   </head>
   <body>
-	<div class="main">
-		<table class="chess-table"/>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+	<a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+	       <span class="icon-bar"></span>
+	       <span class="icon-bar"></span>
+	       <span class="icon-bar"></span>
+	</a>
+	<a class="brand" href="#">Asimus Portal</a>
+	<div class="nav-collapse collapse">
+		  <ul class="nav">
+		    <li class="active"><a href="#">Forum</a></li>
+		    <li><a href="#">Help</a></li>
+		  </ul>
+                  <form class="navbar-form pull-right">
+                            <input class="span2" type="text" placeholder="Email">
+                            <input class="span2" type="password" placeholder="Password">
+                            <button class="btn" type="submit">Sign in</button>
+                  </form>
 	</div>
+      </div>
+    </div>
+	
+    <div class="container-fluid">
+      <div class="row-fluid">
+	    <div class="js-filters-block span4">
+	      <h3>Filters</h3>
+	    </div>
+            <div class="js-data-block span8">
+	      <h3>Data</h3>
+	      <!--<div class="map-block" style="width:100%">
+		<div id="map" style="width: 100%; height: 460px"></div>
+              </div>
+	      <div class="control-block" style="width:100%"></div>-->
+            </div>
+      </div>
+	
+    </div>
   </body>
 </html>

@@ -32,7 +32,6 @@ define('main', [
 	'backbone'
 ], function (AppView, Router, Vm, Backbone) {
 	'use strict';
-	
 	//Backbone.emulateJSON = true;
 	var appView = Vm.create({}, 'AppView', AppView);
 	appView.render();
