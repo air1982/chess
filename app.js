@@ -29,6 +29,6 @@ require('./routes')(app);
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-http.createServer(app).listen(config.get('port'), function(){
-  log.info('Express server listening on port ' + config.get('port'));
+http.createServer(app).listen(process.env.PORT || config.get('port'), function(){
+  log.info('Express server listening on port ' + process.env.PORT || config.get('port'));
 });

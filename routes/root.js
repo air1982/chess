@@ -1,5 +1,5 @@
-var oracle = require("oracle");
-var connectData = { "hostname": "localhost", "user": "ASIMUS_DEVEL", "password": "ASIMUS_DEVEL123", "database": "XE" };
+//var oracle = require("oracle");
+//var connectData = { "hostname": "localhost", "user": "ASIMUS_DEVEL", "password": "ASIMUS_DEVEL123", "database": "XE" };
 
 
 exports.get = function(req, res) {
