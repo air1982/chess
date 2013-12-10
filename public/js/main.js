@@ -4,13 +4,14 @@ require.config({
 		backbone: 'lib/backbone',
 		underscore: 'lib/underscore',
 		json2: 'lib/json2',
+		moment: "lib/moment.min",
 		// Require.js plugins
 		text: 'lib/requirejs/text',
 		tpl: 'lib/requirejs/tpl',
 		async: 'lib/requirejs/async',
 		i18n: 'lib/requirejs/i18n',
 		// Templates
-		templates: '../templates'
+		templates: '../templates',
 	},
 	
 	shim: {
@@ -32,10 +33,9 @@ define('main', [
 	'backbone'
 ], function (AppView, Router, Vm, Backbone) {
 	'use strict';
-	//Backbone.emulateJSON = true;
 	var appView = Vm.create({}, 'AppView', AppView);
 	appView.render();
-	Router.initialize({appView: appView});
+	//Router.initialize({appView: appView});
 
 	return appView;
 });

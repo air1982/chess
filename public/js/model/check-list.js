@@ -7,13 +7,23 @@ define(function (require) {
 		//model: Model,
 		
 		initialize: function (models, options) {
-			//this.filter = {};
+			this.filters = {};
 		},
 
 		/**
 		 * @private
 		 */
-		url: 'filters',
+		//url: 'filters',
+		
+		url: function(){
+			var filters = '?filters='+JSON.stringify(this.filters);
+			return 'filters' + filters
+		},
+		
+		
+		setFilters: function (options){
+			this.filters = options;
+		}
 		
 
 	});

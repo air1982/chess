@@ -19,11 +19,11 @@ define(function (require) {
 			_.each(this.model.get('content'), function(elem){
 				that.renderElement(elem)
 			})
-			this.$el.attr({multiple:'true', size: 2, name: this.model.get('id').toString()});
+			this.$el.attr({multiple:'true', size: 4, name: this.model.get('id').toString()});
 		},
 		
 		renderElement: function (item) {
-			this.$el.append(template({id: item['ID'], name: item['NAME']}));
+			this.$el.append(template({id: item['id'], name: item['name']}));
 		}
 				
 	})

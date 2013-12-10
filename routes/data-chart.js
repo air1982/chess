@@ -1,4 +1,8 @@
-exports.get = function(req, res){
+var log = require('../lib/log')(module);
+
+exports.get = function(req, res, next){
+    var mess=JSON.parse(req.param('filters'));
+    //log.info(req.param);
     var model = { 
     
     "xAxis":["2013-10-01","2013-10-02","2013-10-03","2013-10-04","2013-10-08",
@@ -22,6 +26,31 @@ exports.get = function(req, res){
 					     {"x":23,"y":100}]}
 	      ]
     }
-  		
+    
+    //    var query = Model.find({}); 
+//    _.each(filters, function(value, index){
+//	switch (index) {
+//	    case 'todate':
+//		query.where('TS').lte(value );
+//		break;
+//	    
+//	    case 'fromdate':
+//		query.where('TS').gte(value);
+//		break;
+//	    
+//	    case 'OPERATOR':
+//		query.where('OPERATOR_ID').equals(value);
+//		break;
+//	    case 'location':
+//		query.where('LONGITUDE').gte(value.lng-2).lte(value.lng+2);
+//		query.where('LATITUDE').gte(value.lat-2).lte(value.lat+2);
+//		break;
+//	}
+//    })
+    
+    //query.select('-_id  -__v');
+    
+    log.info(mess['{fromdate}'])
+    	
     res.json(model);
 };

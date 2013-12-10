@@ -24,7 +24,7 @@ define(function (require) {
 	
 	},
         
-        delayHide: function ($elem) {
+        delayHide: function ($elem, tuning) {
             var flag = true;
 	    $elem.mouseenter(function(){
 		flag=true;
@@ -33,7 +33,12 @@ define(function (require) {
 		flag=false;
 		function hideFilter(){
                     if (flag) return false;
-		    $elem.hide();
+		    if (tuning){
+			if (tuning.removeClass) $elem.removeClass(tuning.removeClass);
+			else if (tuning.popover) $elem.popover(tuning.popover);
+		    }
+		    else $elem.hide();
+		    
 		    $elem.off('mouseleave');
                     return true;
 		}

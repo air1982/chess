@@ -1,8 +1,77 @@
 {
-"port": 3000,
-"env": "development",
-"logger": {
-    "format": "default"
-  }
+    "port": 3000,
+    "env": "development",
+    "mongoose": {
+        "uri": "mongodb://localhost/asimus",
+        "options": {
+            "server": {
+                "socketOptions": {
+                    "keepAlive": 1
+                }
+            }
+        }
+    },
+    
+    "session": {
+        "secret": "asimuspublic",
+        "maxAge": 14400000
+    },
+    
+    "logger": {
+        "format": "default"
+    },
+    
+    "views": {
+        "map": {
+            "group": {
+                "_id": {"OPERATOR_ID": "$OPERATOR_ID", "OPERATOR": "$OPERATOR", "OPER_COLOR": "$OPER_COLOR", "ad0": "$ad0", "ad1": "$ad1"},
+                "long": {"$avg" : "$LON"},
+                "lat": {"$avg" : "$LAT"},
+                "ts": {"$max" : "$TS"},
+                "accessibility": {"$avg" : "$ACCESSIBILITY"},
+                "mdr": {"$avg" : "$MDR"},
+                "latency": {"$avg" : "$LATENCY"}
+            },
+            "project": {
+                "_id": 0,
+                "OPERATOR_ID": "$_id.OPERATOR_ID",
+                "OPERATOR": "$_id.OPERATOR",
+                "OPER_COLOR": "$_id.OPER_COLOR",
+                "LON": "$long",
+                "LAT": "$lat",
+                "TS": "$ts",
+                "ACCESSIBILITY": "$accessibility",
+                "MDR": "$mdr",
+                "LATENCY": "$latency",
+                "ad0": "$_id.ad0",
+                "ad1": "$_id.ad1"
+            }
+        
+        } ,
+        "table": {
+            "group": {
+                "_id": {"OPERATOR_ID": "$OPERATOR_ID", "OPERATOR": "$OPERATOR", "NETTYPE": "$NETTYPE", "ad0": "$ad0", "ad1": "$ad1", "ad2": "$ad2"},
+                "ts": {"$max" : "$TS"},
+                "accessibility": {"$avg" : "$ACCESSIBILITY"},
+                "mdr": {"$avg" : "$MDR"},
+                "latency": {"$avg" : "$LATENCY"}
+            },
+            "project": {
+                "_id": 0,
+                "OPERATOR": "$_id.OPERATOR",
+                "NETTYPE": "$_id.NETTYPE",
+                "COUNTRY": "$_id.COUNTRY",
+                "FILIAL": "$_id.FILIAL",
+                "TS": "$ts",
+                "ACCESSIBILITY": "$accessibility",
+                "MDR": "$mdr",
+                "LATENCY": "$latency",
+                "ad0": "$_id.ad0",
+                "ad1": "$_id.ad1",
+                "ad2": "$_id.ad2"
+            }
+        
+        }       
+    }
 
 }

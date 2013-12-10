@@ -1,28 +1,41 @@
-<form id="filter-form"> 
+<form id="filters-form"> 
 	<legend>Filters</legend>
 	<fieldset>
 		<label>From Date</label>
-		<input type="text" name="{fromdate}" class="hasDatepicker js-fromdate"/>
+		<input type="text" name="fromdate" class="hasDatepicker js-fromdate"/>
 	</fieldset>
 	<fieldset>
 		<label>To Date</label>
-		<input type="text" name="{todate}" class="hasDatepicker js-todate"/>
+		<input type="text" name="todate" class="hasDatepicker js-todate"/>
 	</fieldset>
-	<fieldset data-tpl="{operator}">
+	<fieldset data-tpl="OPERATOR">
 		<label>Operator</label>
-		
 	</fieldset>
-	<fieldset data-tpl="{region}">
-		<label>Region</label>
-		
+	<fieldset >
+		<label>Location</label>
+		<input type="text" class="js-autocomplete"/>
 	</fieldset>
-	<button type="submit" class="btn">View/Review</button>
+	
+	<% if (imei) {%>
+	<fieldset>
+		<label class="wide">Only my measurement</label>
+		<label class="wide">(IMEI: <%= imei %>)</label>
+		<input type="checkbox" name="IMEI"/>
+	</fieldset>
+	<%}%>
+	
+	<button class="btn js-submit" data-content="no data with these settings" rel="popover" href="#" data-original-title="Warning!">View/Review</button>
 	</fieldset>
 </form>
 
-<div class="js-date-filters date-filters popup">
-	<label>From Date</label>
-	<label>To Date</label>
-	<div class="js-fromdate-picker calendar"/>
-	<div class="js-todate-picker calendar"/>
+<div class="js-date-filters date-filters popover fade bottom in">
+	<div class="arrow"></div>
+	<div class="popover-inner">
+		<div class="popover-content">
+			<label>From Date</label>
+			<label>To Date</label>
+			<div class="js-fromdate-picker calendar"/>
+			<div class="js-todate-picker calendar"/>
+		</div>
+	</div>
 </div>
